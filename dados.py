@@ -1,26 +1,37 @@
 from logging import critical
 import random
 
+def tiradaMaestria(cant, dif):
+    success = 0
+    for i in range(0, cant):
+        roll = random.randint(1,10)
+        if roll >= dif:
+            print(f' {roll}!')
+            success += 1
+        else:
+            print(f' {roll}')
+    return success
+
 def tiradas(cant, dif, mas):
-    successe = 0
+    success = 0
     critical = 0
     for i in range(0, cant):
         roll = random.randint(1,10)
         if roll == 1:
             print(f' {roll}!')
-            successe -= 1
+            success -= 1
         elif (roll == 10):
             print(f' {roll}! Critical Success!')
-            successe += 1
+            success += 1
             critical += 1
         elif roll >= dif:
             print(f' {roll}!')
-            successe += 1
+            success += 1
         else:
             print(f' {roll}')
     if mas:
-        successe += tiradas(critical, dif, 0)
-    return successe
+        success += tiradaMaestria(critical, dif)
+    return success
 
 def main():
     dice_rolls = int(input('Cuantos dados? '))
