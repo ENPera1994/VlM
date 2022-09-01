@@ -1,16 +1,16 @@
 from logging import critical
 import random
 
-def tiradaMaestria(cant, dif):
-    success = 0
-    for i in range(0, cant):
-        roll = random.randint(1,10)
-        if roll >= dif:
-            print(f' {roll}!')
-            success += 1
-        else:
-            print(f' {roll}')
-    return success
+#def tiradaMaestria(cant, dif):
+#    success = 0
+#    for i in range(0, cant):
+#        roll = random.randint(1,10)
+#        if roll >= dif:
+#            print(f' {roll}!')
+#            success += 1
+#        else:
+#            print(f' {roll}')
+#    return success
 
 def tiradas(cant, dif, mas):
     success = 0
@@ -30,7 +30,7 @@ def tiradas(cant, dif, mas):
         else:
             print(f' {roll}')
     if mas:
-        success += tiradaMaestria(critical, dif)
+        success += tiradas(critical, dif, mas)
     return success
 
 def main():
